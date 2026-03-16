@@ -1,0 +1,14 @@
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\bin\Debug\net10.0\Bus_Operator.exe
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\bin\Debug\net10.0\Bus_Operator.deps.json
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\bin\Debug\net10.0\Bus_Operator.runtimeconfig.json
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\bin\Debug\net10.0\Bus_Operator.dll
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\bin\Debug\net10.0\Bus_Operator.pdb
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.AssemblyInfoInputs.cache
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.AssemblyInfo.cs
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.csproj.CoreCompileInputs.cache
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.dll
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\refint\Bus_Operator.dll
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.pdb
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\Bus_Operator.genruntimeconfig.cache
+C:\Users\Nitish\source\repos\Bus_Operator\Bus_Operator\obj\Debug\net10.0\ref\Bus_Operator.dll
