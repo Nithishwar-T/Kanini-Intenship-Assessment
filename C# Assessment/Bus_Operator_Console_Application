@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+   
+    static string Destination = "Japan";
+    static string DepartureTime = "10:00 AM";
+    static double BaseFare = 500;
+
+   
+    static bool[,] seats = new bool[5, 4];
+
+    
+    static Dictionary<int, (string name, double fare, string seatType)> passengers =
+        new Dictionary<int, (string, double, string)>();
+
+    static double totalRevenue = 0;
+
+    static void Main(string[] args)
+    {
+        ShowTripDetails();
+
+        while (true)
+        {
+            DisplaySeats();
+
+            Console.Write("\nEnter your name: ");
+            string name = Console.ReadLine()!;
+
+            Console.Write("Enter your seat number: ");
+            int seatNumber = Convert.ToInt32(Console.ReadLine());
+
+            if (seatNumber < 1 || seatNumber > 20)
+            {
+                Console.WriteLine("Invalid Seat Number");
+                continue;
+            }
+
+            BookSeat(name, seatNumber);
+
+            DisplaySeats();
+
+            Console.Write("\nDo you want to book another seat? (y/n): ");
+            string choice = Console.ReadLine()!;
+
+            if (choice.ToLower() == "n")
+                break;
+        }
+
+        ShowManifest();
+
+        Console.ReadLine();
+    }
+
+ 
+    static void ShowTripDetails()
+    {
+        Console.WriteLine("BUS TRIP DETAILS");
+        Console.WriteLine($"Destination    : {Destination}");
+        Console.WriteLine($"Departure Time : {DepartureTime}");
+        Console.WriteLine($"Base Fare      : {BaseFare}");
+    }
+
+   
+    static void DisplaySeats()
+    {
+        Console.WriteLine("\nBus Seating Arrangements\n");
+
+        for (int row = 0; row < 5; row++)
+        {
+            for (int col = 0; col < 4; col++)
+            {
+                int seatNumber = row * 4 + col + 1;
+
+                if (seats[row, col])
+                    Console.Write($"{seatNumber,2}[X] ");
+                else if (col == 0 || col == 3)
+                    Console.Write($"{seatNumber,2}[W] ");
+                else
+                    Console.Write($"{seatNumber,2}[A] ");
+
+                if (col == 1)
+                    Console.Write("  ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    
+    static double CalculateFare(int col)
+    {
+        if (col == 0 || col == 3)
+            return BaseFare * 1.15;
+
+        return BaseFare;
+    }
+
+   
+    static void BookSeat(string name, int seatNumber)
+    {
+        int row = (seatNumber - 1) / 4;
+        int col = (seatNumber - 1) % 4;
+
+        if (seats[row, col])
+        {
+            Console.WriteLine("Seat already booked...Choose another seat");
+            return;
+        }
+
+        double fare = CalculateFare(col);
+
+        seats[row, col] = true;
+
+        string seatType = (col == 0 || col == 3) ? "W" : "A";
+
+        passengers.Add(seatNumber, (name, fare, seatType));
+
+        totalRevenue += fare;
+
+        Console.WriteLine($"\nSeat {seatNumber} booked successfully");
+        Console.WriteLine($"Fare : {fare}");
+        Console.WriteLine($"Seat Type : {seatType}");
+       
+    }
+
+  
+    static void ShowManifest()
+    {
+        Console.WriteLine("\nPassenger Manifest\n");
+
+        foreach (var passenger in passengers)
+        {
+            Console.WriteLine(
+                $"Seat {passenger.Key}[{passenger.Value.seatType}] : {passenger.Value.name} | Fare : {passenger.Value.fare}");
+        }
+
+        Console.WriteLine($"\nTotal Revenue: {totalRevenue}");
+    }
+}
